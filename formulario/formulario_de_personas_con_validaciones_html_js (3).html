@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crear Persona</title>
+  <style>
+    :root{
+      --bg:#721774b7; --panel:#712972bb; --muted:#fff1ff; --fg:#f0f0f0; --accent:#ffffffc0; --ok:#881679c4; --danger:#ab5897;
+      --radius:14px;
+    }
+    html,body{height:100%}
+    body{margin:0;background:radial-gradient(1200px 600px at 20% -10%, #152041 0%, transparent 60%),
+                 radial-gradient(1200px 600px at 120% 110%, #1a2958 0%, transparent 60%), var(--bg);
+         font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,Arial,sans-serif; color:var(--fg);}
+    .wrap{max-width:920px;margin:32px auto;padding:24px}
+    .card{background:linear-gradient(180deg, rgba(0, 0, 0, 0.637), rgba(255,255,255,.02));
+          border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(6px); border-radius:var(--radius); box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .card h1{margin:0;padding:24px 24px 8px;font-size:clamp(22px,3vw,28px)}
+    .desc{margin:0 24px 4px;color:var(--muted);font-size:14px}
+    form{padding:16px 24px 24px;}
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(12,1fr)}
+    .col-6{grid-column:span 6}
+    .col-12{grid-column:span 12}
+    @media (max-width:720px){.col-6{grid-column:span 12}}
+
+    label{display:block;margin:0 0 6px;font-weight:600}
+    .field{position:relative}
+    input,select,textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.16);
+      background:#0e1630;color:var(--fg);outline:none;transition:border .2s, box-shadow .2s}
+    input:focus,select:focus,textarea:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(90,160,255,.25)}
+
+    .hint{color:var(--muted);font-size:12px;margin-top:6px}
+    .error{color:var(--danger);font-size:12px;margin-top:6px;display:none}
+    .invalid input,.invalid select{border-color:var(--danger)}
+
+    .actions{display:flex;gap:12px;justify-content:flex-end;margin-top:8px}
+    .btn{appearance:none;border:0;border-radius:12px;padding:12px 16px;cursor:pointer;font-weight:600}
+    .btn.primary{background:linear-gradient(180deg,#791377,#e03fdd); color:white}
+    .btn.secondary{background:rgba(137, 9, 122, 0.597);color:var(--fg);border:1px solid rgba(255, 67, 252, 0.08)}
+
+    .toast{position:fixed;right:16px;bottom:16px;background:#0e1a36;color:var(--fg);border:1px solid rgba(255,255,255,.1);
+      padding:12px 16px;border-radius:12px;display:none; box-shadow:0 6px 22px rgba(0, 0, 0, 0.35)}
+    .toast.ok{border-left:6px solid var(--ok)}
+    .toast.err{border-left:6px solid var(--danger)}
+
+    .req{color:#120f13;margin-left:4px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="region" aria-labelledby="title">
+      <h1 id="title">Crear persona</h1>
+      <p class="desc">Formulario con validaciones en tiempo real usando JavaScript (sin librerías). Campos marcados con <span class="req">*</span> son obligatorios.</p>
+      <form id="personForm" novalidate>
+        <div class="grid">
+          <div class="col-6 field">
+            <label for="firstName">nombre <span class="req">*</span></label>
+            <input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="10000" required minlength="2" maxlength="60" />
+            <div class="hint">Mín. 2 y máx. 60 caracteres. solo numero </div>
+            <div class="error" aria-live="polite"></div>
+          </div>
+          <div class="col-6 field">
+            <label for="lastName">Apellidos <span class="req">*</span></label>
+            <input id="lastName" name="lastName" type="text" autocomplete="family-name" placeholder="Ej: Pérez Gómez" required minlength="2" maxlength="80" />
+            <div class="hint">Mín. 2 y máx. 80 caracteres.</div>
+            <div class="error" aria-live="polite"></div>
+          </div>
+
+          <div class="col-6 field">
+            <label for="docType">Tipo de documento <span class="req">*</span></label>
+            <select id="docType" name="docType" required>
+              <option value="">Seleccione…</option>
+              <option value="CC">Cédula de ciudadanía (CC)</option>
+              <option value="CE">Cédula de extranjería (CE)</option>
+              <option value="PASS">Pasaporte</option>
+              <option value="NIT">NIT</option>
+              <option value="TIC">Tarjeta de identidad</option>
+            </select>
+            <div class="error" aria-live="polite"></div>
+          </div>
+
+          <div class="col-6 field">
+            <label for="docNumber">Número de documento <span class="req">*</span></label>
+            <input id="docNumber" name="docNumber" type="text" inputmode="numeric" placeholder="Ej: 1020304050" required minlength="5" maxlength="20" />
+            <div class="hint">Solo dígitos, sin puntos ni comas. 5–20 caracteres.</div>
+            <div class="error" aria-live="polite"></div>
+          </div>
+
+          <div class="col-6 field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="ejemplo@dominio.com" />
+            <div class="error" aria-live="polite"></div>
+          </div>
+
+          <div class="col-6 field">
+            <label for="phone">Teléfono</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="3001234567" maxlength="20" />
+            <div class="hint">Colombia: 10 dígitos (se prefija +57 al enviar).</div>
+            <div class="error" aria-live="polite"></div>
+          </div>
+
+          <div class="col-6 field">
+            <label for="birthDate">Fecha de nacimiento</label>
+            <input id="birthDate" name="birthDate" type="date" max="" />
+            <div class="hint">Debe ser una fecha pasada y persona mayor de 14 años.</div>
+            <div class="error" aria-live="polite"></div>
+          </div>
+
+          <div class="col-6 field">
+            <label for="gender">Género</label>
+            <select id="gender" name="gender">
+              <option value="">Prefiero no decir</option>
+              <option value="F">Femenino</option>
+              <option value="M">Masculino</option>
+              <option value="O">Otro</option>
+            </select>
+          </div>
+
+          <div class="col-12 field">
+            <label for="address">Dirección</label>
+            <input id="address" name="address" type="text" placeholder="Calle 123 #45-67, Barrio…" maxlength="120" />
+            <div class="error" aria-live="polite"></div>
+          </div>
+
+          <div class="col-12 field">
+            <label for="notes">Notas</label>
+            <textarea id="notes" name="notes" rows="10" placeholder="Observaciones adicionales…" maxlength="300"></textarea>
+            <div class="hint">Máximo 300 caracteres.</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="reset" class="btn secondary" id="btnReset">Limpiar</button>
+          <button type="submit" class="btn primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // Utilidades DOM
+    const $ = (sel, ctx=document) => ctx.querySelector(sel);
+    const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+
+    // Reglas auxiliares
+    const nameRegex = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'-]{2,}$/;
+    const digitsOnly = /^\d+$/;
+    const phoneCo = /^\d{10}$/; // Colombia
+
+    // Limitar fecha máxima (hoy - 14 años)
+    (function setDateLimits(){
+      const d = new Date();
+      const today = d.toISOString().slice(0,10);
+      const minAge = new Date(d.getFullYear()-14, d.getMonth(), d.getDate());
+      $('#birthDate').max = minAge.toISOString().slice(0,10);
+    })();
+
+    function setError(fieldEl, message){
+      const container = fieldEl.closest('.field');
+      if(!container) return;
+      container.classList.toggle('invalid', Boolean(message));
+      const err = $('.error', container);
+      if(err){ err.textContent = message || ''; err.style.display = message ? 'block' : 'none'; }
+    }
+
+    function validateField(el){
+      const v = (el.value || '').trim();
+      let msg = '';
+
+      switch(el.id){
+        case 'firstName':
+        case 'lastName':
+          if(el.required && v.length === 0) msg = 'Este campo es obligatorio.';
+          else if(v && !nameRegex.test(v)) msg = 'Solo letras, espacios y acentos. Mínimo 2 caracteres.';
+          else if(v.length > el.maxLength) msg = `Máximo ${el.maxLength} caracteres.`;
+          break;
+        case 'docType':
+          if(!v) msg = 'Seleccione un tipo de documento.';
+          break;
+        case 'docNumber':
+          if(v.length === 0) msg = 'Ingrese el número de documento.';
+          else if(!digitsOnly.test(v)) msg = 'Solo números (sin puntos ni comas).';
+          else if(v.length < 5 || v.length > 20) msg = 'Longitud permitida: 5 a 20 dígitos.';
+          break;
+        case 'email':
+          if(v && !el.checkValidity()) msg = 'Formato de correo no válido.';
+          break;
+        case 'phone':
+          if(v && !phoneCo.test(v)) msg = 'Ingrese 10 dígitos (ej. 3001234567).';
+          break;
+        case 'birthDate':
+          if(v){
+            const dt = new Date(v);
+            const today = new Date();
+            const minAge = new Date(today.getFullYear()-14, today.getMonth(), today.getDate());
+            if(dt > minAge) msg = 'Debe ser mayor de 14 años.';
+          }
+          break;
+        case 'address':
+          if(v.length > 120) msg = 'Máximo 120 caracteres.';
+          break;
+        case 'notes':
+          if(v.length > 300) msg = 'Máximo 300 caracteres.';
+          break;
+      }
+      setError(el, msg);
+      return !msg;
+    }
+
+    // Validación en tiempo real
+    $$('#personForm input, #personForm select, #personForm textarea').forEach(el => {
+      el.addEventListener('input', () => validateField(el));
+      el.addEventListener('blur', () => validateField(el));
+    });
+
+    // Envío del formulario
+    $('#personForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const form = e.currentTarget;
+
+      // Validar todos los campos
+      const allFields = $$('#personForm input, #personForm select, #personForm textarea');
+      const ok = allFields.map(validateField).every(Boolean);
+      if(!ok){
+        showToast('Revise los campos marcados en rojo.', true);
+        const firstInvalid = $('.invalid input, .invalid select, .invalid textarea');
+        if(firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      // Construir payload limpio
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      // Normalizaciones
+      if(data.phone){ data.phone = '+57' + data.phone.replace(/\D/g,''); }
+      if(data.docNumber){ data.docNumber = data.docNumber.replace(/\D/g,''); }
+
+      // Simular envío
+      console.log('Payload listo para enviar:', data);
+      // Aquí podrías hacer: fetch('/api/personas', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) })
+
+      showToast('Persona guardada correctamente.', false);
+      form.reset();
+    });
+
+    $('#btnReset').addEventListener('click', ()=>{
+      $$('#personForm .field').forEach(f=>f.classList.remove('invalid'));
+      $$('#personForm .error').forEach(e=>{e.textContent=''; e.style.display='none'});
+      showToast('Formulario limpiado.', false);
+    });
+
+    function showToast(message, isError){
+      const t = $('#toast');
+      t.className = 'toast ' + (isError? 'err' : 'ok');
+      t.textContent = message;
+      t.style.display = 'block';
+      clearTimeout(showToast._to);
+      showToast._to = setTimeout(()=> t.style.display = 'none', 2800);
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
