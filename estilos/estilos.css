@@ -12,13 +12,13 @@
 
 /* Variables de colores y tamaño de fuente definidas en :root para fácil acceso */
 :root {
-    --color_text-primary: #309C13; /* Verde primario */
-    --color_text-secundary: #101E2C; /* Azul oscuro */
-    --color_text-tertiary: #155404; /* Verde oscuro */
+    --color_text-primary: #391539; /* Verde primario */
+    --color_text-secundary: #e463df; /* Azul oscuro */
+    --color_text-tertiary: #c92eaa; /* Verde oscuro */
     --lowText_font_size: 16px; /* Tamaño de fuente base */
-    --main_color-primary: #155404; /* Define el color primario del tema, utilizado para elementos destacados y acentos */
-	--main_color-secundary: #8ADA74; /* Define el color secundario, que puede ser usado para elementos secundarios o complementarios */
-	--background-color: #EFF0EF; /* Establece el color de fondo general para el diseño, proporcionando un tono claro y suave */
+    --main_color-primary: #510454; /* Define el color primario del tema, utilizado para elementos destacados y acentos */
+	--main_color-secundary: #5e384e; /* Define el color secundario, que puede ser usado para elementos secundarios o complementarios */
+	--background-color: #ffbfe0; /* Establece el color de fondo general para el diseño, proporcionando un tono claro y suave */
 	--text_size_title: 40px; /* Define el tamaño de fuente para los títulos principales, asegurando que sean prominentes */
 	--text_title_card: 24px; /* Establece el tamaño de fuente para los títulos de tarjetas, permitiendo diferenciación en el contenido */
 	--text_title_cardv2: 20px; /* Define un tamaño de fuente alternativo para otro tipo de títulos de tarjetas, proporcionando flexibilidad en el diseño */
@@ -32,7 +32,7 @@ header {
     height: 150px; /* Altura fija */
     position: fixed; /* Fijo en la parte superior de la pantalla */
     z-index: 100; /* Prioridad alta para superponer elementos */
-    background: #d4b1cf; /* Color de fondo verde */
+    background: #f8b6e1; /* Color de fondo verde */
 }
 
 /* Contenedor principal del encabezado */
@@ -84,24 +84,24 @@ header {
 
 /* Estilo de los enlaces dentro de la lista de navegación */
 .menu nav ul li a {
-    color: rgb(255, 255, 255); /* Color del texto de los enlaces (puede ser var(--color_text-secundary)) */
+    color: rgb(243, 174, 245); /* Color del texto de los enlaces (puede ser var(--color_text-secundary)) */
     font-size: 16px; /* Tamaño de fuente (puede ser var(--lowText_font_size)) */
     position: relative; /* Posicionamiento relativo para efectos */
 }
 
 /* Efecto hover sobre los enlaces del menú */
 .menu nav ul li a:hover {
-    color: #170149; /* Cambia el color al verde primario en hover */
+    color: #e49ceb; /* Cambia el color al verde primario en hover */
 }
 
 /* Botón de llamada a la acción (cita, contacto, etc.) */
 .btn_quote {
     display: block; /* Muestra el botón como un bloque */
     padding: 8px 40px; /* Relleno interno */
-    border: 5px solid #5c0969; /* Borde verde primario */
-    border-radius: 8px; /* Bordes redondeados */
+    border: 2px solid #904e77; /* Borde verde primario */
+    border-radius: 20px; /* Bordes redondeados */
     font-weight: 500; /* Peso de fuente medio */
-    color: #7b68ec; /* Texto de color verde oscuro */
+    color:solid #934e82; /* Texto de color verde oscuro */
     margin: 0px 20px; /* Margen horizontal */
     transition: all 300ms; /* Transición suave para efectos de hover */
 }
@@ -109,7 +109,7 @@ header {
 /* Efecto hover sobre el botón */
 .btn_quote:hover {
     color: white; /* Cambia el color del texto a blanco */
-    background: #f12ac0; /* Fondo verde primario */
+    background: #d088be; /* Fondo verde primario */
 }
 
 /* Estilo del contenedor de redes sociales en el menú */
@@ -134,7 +134,7 @@ header {
 .container__cover { /* Estilo para el contenedor principal de la sección de cubierta */
     padding-top: 100px; /* Añade un espacio de 100px en la parte superior del contenedor */
     padding-bottom: 100px; /* Añade un espacio de 100px en la parte inferior del contenedor */
-    background: rgb(247, 189, 255); /* Establece el color de fondo usando la variable secundaria definida */
+    background: rgb(255, 218, 251); /* Establece el color de fondo usando la variable secundaria definida */
 }
 
 .cover { /* Estilo para el contenedor que agrupa el contenido de la cubierta */
@@ -169,9 +169,9 @@ header {
     padding: 10px 20px; /* Añade un padding de 10px vertical y 20px horizontal dentro del botón */
     text-align: center; /* Centra el texto dentro del botón */
     font-weight: 500; /* Establece un peso de fuente semi-negrita */
-    background: rgb(152, 97, 152); /* Establece el color de fondo usando la variable primaria definida */
+    background: rgb(131, 72, 127); /* Establece el color de fondo usando la variable primaria definida */
     color:#fcfcfc;  /* Define el color del texto del botón como blanco */
-    border-radius: 10px; /* Redondea las esquinas del botón con un radio de 8px */
+    border-radius: 100px; /* Redondea las esquinas del botón con un radio de 8px */
     border: 2px solid transparent; /* Establece un borde de 2px que es transparente por defecto */
     cursor: pointer; /* Cambia el cursor a un puntero al pasar sobre el botón */
     transition: all 300ms; /* Añade una transición suave para todos los cambios en el botón durante 300ms */
@@ -188,7 +188,7 @@ header {
 }
 
 .image__cover img { /* Estilo para las imágenes dentro de la sección de imagen */
-    width: 550px; /* Define un ancho fijo de 550px para la imagen */
+    width: 450px; /* Define un ancho fijo de 550px para la imagen */
 }
 
 /*End Portada Inicio/
@@ -233,7 +233,7 @@ header {
 .box__card-primary { /* Estilo para cada tarjeta individual */
     max-width: 350px; /* Limita el ancho máximo a 350px */
     padding: 60px 40px; /* Añade un padding de 60px en vertical y 40px en horizontal */
-    border: 1px solid #e6e6e6; /* Aplica un borde de 1px de color gris claro */
+    border: 1px solid #85477f; /* Aplica un borde de 1px de color gris claro */
     border-radius: 20px; /* Redondea las esquinas de la tarjeta con un radio de 20px */
     margin: 14px; /* Añade un margen de 14px alrededor de cada tarjeta */
     transition: all 300ms; /* Aplica una transición suave para todos los cambios de estilo en 300ms */
@@ -255,70 +255,12 @@ header {
 }
 
 /* End Estilos Generales Cards */
-/* Equipo */
-
-.container_team{
-    padding-top: 100px;
-    padding-bottom: 100px;
-    background-color:white;
-}
-
-.team{
-    max-width: 1200px;
-    margin: auto;
-    text-align: center;
-    padding: 0px 20px;
-}
-
-.text_team{
-    max-width: 800px;
-    margin: auto;
-}
-
-.text_team p{
-    color: var(--color_text-primary);
-    letter-spacing: 4px;
-    font-size: var(--color_text-font);
-    font-weight: 500;
-    text-align: center;
-}
-.text_team h1{
-    text-align: center;
-    font-size: 28px;
-}
-
-.container_box_team{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centra las cajas de equipo en el contenedor */
-    gap: 50px; /* Espaciado entre cada caja de equipo */
-    margin-top: 40px;
-    text-align: center;
-}
-
-.box_team {
-    width: 300px; /* Ajusta el ancho de cada caja de equipo */
-    text-align: center;
-}
-
-.container_box_team img{
-    height: 350px;
-    width: 100%; /* Ajusta la imagen al ancho de la caja */
-    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsión */
-    border-radius: 20px;
-}
-
-.container_box_team img:hover{
-    transform: scale(1.05);
-}
-
-/* End Equipo */
 /* Sobre Nosotros */
 
 .container__about { /* Estilo para el contenedor principal de la sección Sobre Nosotros */
-    padding: 100px 0px; /* Añade un padding de 100px arriba y abajo */
-    background: var(--background-color); /* Define el color de fondo usando la variable de fondo */
-    margin-top: 100px; /* Añade un margen superior de 100px para separación del contenido anterior */
+    padding: 250px 150px; /* Añade un padding de 100px arriba y abajo */
+    background: rgb(255, 218, 251); /* Define el color de fondo usando la variable de fondo */
+    margin-top: 150px; /* Añade un margen superior de 100px para separación del contenido anterior */
 }
 
 .about { /* Estilo para el contenedor que agrupa el contenido de Sobre Nosotros */
@@ -356,3 +298,311 @@ header {
 }
 
 /*End Sobre Nosotros*/ 
+/* Equipo */
+
+.container_team{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color:rgb(255, 219, 248);
+}
+
+.team{
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.text_team{
+    max-width: 800px;
+    margin: auto;
+}
+
+.text_team p{
+    color:  rgb(199, 90, 239);
+    letter-spacing: 4px;
+    font-size: var(--color_text-font);
+    font-weight: 500;
+    text-align: center;
+}
+.text_team h1{
+    text-align: center;
+    font-size: 28px;
+}
+
+.container_box_team{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las cajas de equipo en el contenedor */
+    gap: 50px; /* Espaciado entre cada caja de equipo */
+    margin-top: 40px;
+    text-align: center;
+}
+
+.box_team {
+    width: 300px; /* Ajusta el ancho de cada caja de equipo */
+    text-align: center;
+}
+
+.container_box_team img{
+    height: 350px;
+    width: 100%; /* Ajusta la imagen al ancho de la caja */
+    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsión */
+    border-radius: 20px;
+}
+
+.container_box_team img:hover{
+    transform: scale(1.05);
+}
+
+/* End Equipo */
+/* Galería */
+
+.container_projects {
+    padding: 100px 10px; /* Añade un padding de 100px arriba y abajo */
+    background: rgb(255, 194, 245); /* Define el color de fondo usando la variable de fondo */
+    margin-top: 100px; /* Añade un margen superior de 100px para separación del contenido anterior */
+}
+
+.projects {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.text_projects {
+    max-width: 800px;
+    margin: auto;
+	padding: 40px;
+}
+
+.text_projects p {
+    color: var(--color_text-primary);
+    letter-spacing: 4px;
+    font-size: var(--color_text-font);
+    font-weight: 500;
+    text-align: center;
+}
+
+.text_projects h1 {
+    text-align: center;
+    font-size: 28px;
+}
+
+/* Contenedor de Proyectos */
+.container_box_projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Oculta todos los proyectos por defecto */
+.box_projects {
+    display: none;
+}
+
+/* Muestra todos los proyectos cuando "Todos" está seleccionado */
+#all:checked ~ .container_box_projects .box_projects {
+    display: block;
+}
+
+/* Muestra solo la categoría seleccionada */
+#softwareDesarrollo:checked ~ .container_box_projects .softwareDesarrollo,
+#softwareAplicacion:checked ~ .container_box_projects .softwareAplicacion {
+    display: block;
+}
+
+/* Estilos de Imágenes en Proyectos */
+.img_projects {
+    height: 350px;
+    width: 350px; /* Ajusta la imagen al ancho de la caja */
+    border-radius: 5px;
+    display: block;
+}
+
+.box_projects:hover .img_projects {
+    transform: scale(1.05); /* Efecto de zoom */
+}
+
+/* Texto sobre la Imagen */
+.texto-en-imagen {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(166, 130, 109, 0.6);
+    padding: 5px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+/* End Galería */
+/* Formulario De Contacto */
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+}
+.cover{
+    margin-top: 10px;
+    
+}
+.contact-form h2{
+    font-size: 30px;
+    color: rgb(96, 52, 93);
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.contact-form  {
+    background: var(--main_color-secundary);
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 700px; /* Aumenta el ancho máximo del formulario */
+}
+
+.contact-form input{
+    margin-bottom: 20px;
+    box-shadow: #000000;
+}
+.message{
+    margin-top: 20px ;
+}
+
+.contact-form label{
+    font-size: 15px;
+}
+.contact-form input, .contact-form select, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color_text-primary);
+    color: #ebebeb;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: rgb(120, 74, 120);
+    color: #f4eeee;
+}
+
+#massage{
+    height: 200px;
+}
+
+/* End Formulario De Contacto */
+/* Footer */
+.footer{
+    width: 100%;
+    background-color: var(--main_color-secundary);
+    padding: 0;
+    margin: 0;
+}
+
+.footer .box_footer-primary{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+    justify-items: center;
+}
+.box{
+    text-align: center;
+}
+.footer .box{
+    margin: 0;
+    width: 100%;
+}
+.footer .box_footer-primary p{
+    font-size: 14px;
+}
+
+.footer .box_footer-primary .socialMediaFooter ul a{
+    display: inline-block;
+}
+
+.nav ul{
+    list-style-type: none;
+    padding: 0;
+    gap: 15px;
+}
+
+.nav ul a{
+    color: #0D0D0D;
+    font-weight:500;
+    transition: all 300ms ease;
+}
+
+.nav ul a:hover{
+    color: var(--main_color-primary);
+}
+
+.contactos{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contactos a{
+    display: flex;
+    align-items: center;
+}
+
+.contactos img{
+    margin-right: 10px;
+    transition: all 300ms ease;
+}
+
+.contactos img:hover{
+    transform: scale(1.2);
+}
+.contactos a p{
+    color: #0D0D0D;
+}
+
+.socialMediaFooter a {
+    display: block; 
+    margin-bottom: 10px; 
+    margin-right: 10px;
+}
+
+.socialMediaFooter img {
+    width: 24px; 
+    height: auto;
+    margin-right: 10px;
+    transition: all 300ms ease;
+}
+
+.socialMediaFooter img:hover{
+    transform: scale(1.2);
+}
+
+.footer .box_footer-secundary{
+    background-color: #824b69;
+    text-align: center;
+    padding: 15px 10px;
+    color: rgb(255, 255, 255, 0.9);
+    margin-bottom: 0;
+}
+
+/* End Footer */
